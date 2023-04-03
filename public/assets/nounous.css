@@ -1,0 +1,212 @@
+.nounous {
+    background-color: #478056;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 30px; */
+    padding-bottom: 30px;
+}
+
+.card {
+    width: 15em;
+    height: 270px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.card .clique {
+    top: 0;
+}
+
+.clique img {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 200;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0.9;
+    -webkit-animation: wagon-rebond ease 2s infinite;
+            animation: wagon-rebond ease 2s infinite;
+    z-index: 1;
+}
+
+@keyframes wagon-rebond {
+    50% {
+        bottom: 2em;
+        opacity: 0.8;
+    }
+
+    100% {
+        bottom: 1em;
+        opacity: 0.6 scale(2);
+    }
+}
+
+.card-img {
+    position: absolute;
+    height: 100%;
+    min-width: 100%;
+    top: 50%;
+    left: 50%;
+    transition: 1s;
+    transform: translate(-50%, -50%);
+}
+
+.card-img img {
+    width: 100vw;
+    box-sizing: content-box;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover .card-img {
+    height: 105%;
+}
+
+.card:hover .content {
+    opacity: 1;
+}
+
+.titreNounous {
+    text-align: center;
+    padding-top: 20px;
+    color: var(--main-color);
+    font-size: 3em;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    text-decoration-thickness: 1px;
+}
+
+.content {
+    width: 92%;
+    height: 95%;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 3px solid var(--main-color);
+    text-align: center;
+    position: relative;
+    transition: 5s;
+    opacity: 0;
+}
+
+.title {
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+    color: var(--main-color);
+    text-transform: capitalize;
+    font-size: 50px;
+    margin-top: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: .5s;
+}
+
+.content h2 {
+    font-size: 2em;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 1px;
+    padding: 0;
+}
+
+.content h2,
+p {
+    color: var(--main-color);
+}
+
+.info {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: .5s;
+    margin: -20px auto;
+}
+
+.content span {
+    position: absolute;
+    width: 25%;
+    height: 0;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background: var(--main-color-blue);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: 1s;
+}
+
+.card .content span:nth-child(2) {
+    left: 25%;
+}
+
+.card .content span:nth-child(3) {
+    left: 50%;
+}
+
+.card .content span:nth-child(4) {
+    left: 75%;
+}
+
+.card:hover .content span:nth-child(1) {
+    height: 95%;
+    transition-delay: .1s;
+}
+
+.card:hover .content span:nth-child(2) {
+    height: 98%;
+    transition-delay: .5s;
+}
+
+.card:hover .content span:nth-child(3) {
+    height: 99%;
+    transition-delay: 0.8s;
+}
+
+.card:hover .content span:nth-child(4) {
+    height: 95%;
+    transition-delay: 1s;
+}
+
+.card:hover .title,
+.card:hover .info {
+    opacity: 1;
+    transition-delay: 1.5s;
+}
+
+/* ---------------Media query------------- */
+
+@media (max-width: 576px){
+    .card {
+        width: 15em;
+        height: 20em;
+    }
+
+    .content h2 {
+        font-size: 2em;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+
+    .titreNounous {
+        font-size: 2em;
+    }
+
+    .papillon img {
+        display: none;
+    }
+}

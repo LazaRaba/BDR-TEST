@@ -1,0 +1,305 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0fr;
+    grid-template-rows: 15% 2.5fr 10%;
+    gap: 1em 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "logoContainer comptenceContainer ."
+        "content content ."
+        "socialContainer contactContainer .";
+    background-image: linear-gradient(to right, #121211 50%, #FFAE20 50%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.first-block {
+    position: absolute;
+    width: 0%;
+    height: 100vh;
+    background: linear-gradient(to right, #FFAE20 50%, #121211 50%);
+    animation: go-left 1.7s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    left: 0;
+}
+
+/* --------------Animation----------------- */
+
+@keyframes go-left {
+    0% {
+        left: 0;
+        width: 0%;
+    }
+
+    50% {
+        left: 0;
+        width: 100%;
+    }
+
+    100% {
+        left: 100%;
+        width: 0;
+    }
+}
+
+
+
+
+/* --------------CONTENT----------------- */
+
+.content {
+    display: grid;
+    grid-template-columns: 0.6fr 1.9fr 0.5fr;
+    grid-template-rows: 0.6fr 1.7fr 0.7fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". textDesign ."
+        ". image ."
+        ". text-image .";
+    grid-area: content;
+    overflow: hidden;
+    position: relative;
+}
+
+/* -----------------------IMAGE-------------------- */
+.image {
+    grid-area: image;
+    width: 100%;
+    position: absolute;
+    /* height: 500px; */
+    margin: 0 auto;
+    overflow: hidden;
+    animation-name: scale-up-hor-left;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    animation-fill-mode: both;
+
+}
+
+.image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+@keyframes scale-up-hor-left {
+    0% {
+        transform: scaleX(0);
+        transform-origin: 0% 0%;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transform-origin: 0% 0%;
+    }
+}
+
+/* -----------------------TEXT-IMAGE-------------------- */
+
+.text-image {
+    grid-area: text-image;
+    color: white;
+    margin: 0 auto;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* padding: 0; */
+}
+
+.text-image h1 {
+    font-size: clamp(1.875rem, 0.4688rem + 7.0313vw, 7.5rem);
+    text-align: center;
+}
+
+/* --------------COMPETENCE-------------- */
+.comptenceContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0fr 0fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". competence ."
+        ". . ."
+        ". . .";
+    grid-area: comptenceContainer;
+    z-index: 2;
+}
+
+.competence {
+    grid-area: competence;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+.competence a {
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+
+}
+
+/* --------------CONTACT-------------- */
+
+.contactContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0fr 0fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". contact ."
+        ". . ."
+        ". . .";
+    grid-area: contactContainer;
+    z-index: 2;
+}
+
+.contact {
+    grid-area: contact;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+.contact a {
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+}
+
+.contact a:hover,
+.competence a:hover {
+    color: #FFAE20 !important;
+    background-color: #121211;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* --------------SOCIAL-------------- */
+
+.socialContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0fr 0fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". social ."
+        ". . ."
+        ". . .";
+    grid-area: socialContainer;
+    z-index: 2;
+}
+
+.social {
+    grid-area: social;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.social a {
+    color: white;
+    margin-left: 1em;
+    font-size: clamp(1.2em, 5vw, 1.5em);
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+}
+
+.social a:hover {
+    color: #FFAE20;
+    transform: scale(1.4) !important;
+}
+
+/* --------------LOGO-------------- */
+
+.logoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0fr 0fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". logo ."
+        ". . ."
+        ". . .";
+    grid-area: logoContainer;
+    overflow: hidden;
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 8em;
+    height: 6em;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+    animation-name: scale-up-ver-bottom;
+    animation-duration: .8s;
+    animation-delay: 2.5s;
+    animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    animation-fill-mode: both;
+}
+
+/* -------------ANIM ELEMENTS ------------------ */
+
+@keyframes scale-up-ver-bottom {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.4);
+        transform-origin: 0 100%
+    }
+
+    100% {
+        transform: scaleY(1);
+        transform-origin: 0 100%
+    }
+}
+
+
+
+
+/* -------------MOUSE trail------------------ */
+
+.trail {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgb(245, 248, 245);
+    overflow: hidden;
+}
+
+
+
+/* ----------MediA query--------- */
+
+@media (max-width: 768px) {
+
+    .trail {
+        display: none;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .social a {
+        margin-left: 0.5em;
+    }
+}

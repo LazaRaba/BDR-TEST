@@ -1,0 +1,5 @@
+Pour l'envoi d'email par gmail:
+
+- Il faut faire une connexion en 2 étapes car google n'accepte pas d'utiliser le mot de passe initial.
+- Pour que le message sera envoyé, il faut mettre en commentaire dans messenger.yaml cette ligne:
+    # Symfony\Component\Mailer\Messenger\SendEmailMessage: async

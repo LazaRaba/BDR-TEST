@@ -1,0 +1,87 @@
+<!-- Css Navbar  -->
+<link rel="stylesheet" href="assets/navbar.css">
+
+<header  class="header flex jcc" id="header" >
+    <div class="nav-burger">
+        <i  onclick="openMenuMobile()"><img src="assets/images/Icon/hamburger.png" alt=""></i>
+    </div>
+    <nav class="nav-container flex container aic jcsb" onclick="closeMenuMobile()" >
+        <div class="logo-container">
+            <a class="logo" href="#"><img src="assets/images/Logo/LogoFigma.png" alt="logo"></a>
+            <h2>Brin de rêves</h2>
+        </div>
+        <!-- Menu classic -->
+        <ul class="navbar flex jcsa aic" id="topnav_menu">
+            <div class="nav-close" onclick="closeMenuMobile()" >
+                <i class=" close " ><img src="assets/images/Icon/ferme.png" alt=""></i>
+            </div>
+            <li class="navbar-menu">
+                <a href="/FilRougePhp/index.php">
+                    <div class="icon">
+                        <i class="fa"><img src="assets/images/Icon/accueil.png" alt=""></i>
+                    </div>
+                    <div class="name" <span data-text="Accueil">Accueil </span></div>
+                </a>
+            </li>
+            <li class="navbar-menu">
+                <a href="index.php#titreAboutUs">
+                    <div class="icon">
+                        <i class="fa"><img src="assets/images/Icon/plume.png" alt=""></i>
+                    </div>
+                    <div class="name" <span data-text="Histoire">À propos</span></div>
+                </a>
+            </li>
+            <li class="navbar-menu">
+                <a href="index.php#titreContact">
+                    <div class="icon">
+                        <i class="fa"><img src="assets/images/Icon/call.png" alt=""></i>
+                    </div>
+                    <div class="name" <span data-text="Contact">Contact</span></div>
+                </a>
+            </li>
+            <li class="navbar-menu">
+                <a href="/register">
+                    <div class="icon">
+                        <i class="fa"><img src="assets/images/Icon/parents.png" alt=""></i>
+                    </div>
+                    <div class="name" <span data-text="Parents">Parents </span></div>
+                </a>
+            </li>
+            <li class="navbar-menu">
+                    <!-- Si l'user n'est pas connecté -->
+                    <a href="/register">
+                        <div class="icon">
+                            <i class="fa"><img src="assets/images/Icon/baby-boy.png" alt=""></i>
+                        </div>
+                        <div class="name" <span data-text="Connexion">Connexion </span></div>
+                    </a>
+                </li>
+
+            {# <?php if (isset($_SESSION['auth'])) { ?>
+                <li class="navbar-menu">
+                    <!-- Si l'user est connecté -->
+                    <a href="/FilRougePhp/logout.php">
+                        <div class="icon">
+                            <i class="fa "><img src="assets/images/Icon/baby-boy.png" alt=""></i>
+                        </div>
+                        <div class="name connect" <span data-text="Quitter">Quitter</span></div>
+                    </a>
+                </li>
+                
+            <?php } else { ?>
+                <li class="navbar-menu">
+                    <!-- Si l'user n'est pas connecté -->
+                    <a href="/FilRougePhp/login.php">
+                        <div class="icon">
+                            <i class="fa"><img src="assets/images/Icon/baby-boy.png" alt=""></i>
+                        </div>
+                        <div class="name" <span data-text="Connexion">Connexion </span></div>
+                    </a>
+                </li>
+            <?php } ?> #}
+        </ul>
+    </nav>
+    
+</header>
+
+</html>

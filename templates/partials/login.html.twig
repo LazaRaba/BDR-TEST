@@ -1,0 +1,42 @@
+<!--
+    <?php require 'actions/loginAction.php'; ?>
+    <?php include 'includes/head.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
+-->
+<!-- Css signup -->
+<link rel="stylesheet" href="assets/signup.css">
+
+<div class="grand-parent container">
+
+    <!-- Echo errorMsg si users n'a pas rempli tous les champs 
+        <?php if(isset($errorMsg)){ 
+            echo '<p class="p login">' .$errorMsg.  '</p>' ;
+            } 
+            else if(isset($sucess)){
+                echo '<p class="p-success login">' .$sucess.'</p>' ;
+            }
+            ?>
+            -->
+    <form class="form-parent" action="" method="POST">
+        <div class="form-container">
+            <div class="form" id="sign-in-form">
+                <h1 class="signTitle">Connexion</h1>
+                <div class="fields">
+                    <input type="text" name="email"  placeholder="Votre  email" autocomplete="off">
+                    <input type="password" name="password" placeholder="Mot de passe" autocomplete="off">
+                    
+                </div>
+                <div class="submit-container">
+                    <button type="submit" name="validate" class="btn">se connecter</button>
+                    <p class="link"><a href="signup.php">Vous n'avez pas de compte ? Inscrivez-vous</a></p>
+                    <p class="link"><a href="reset_password.php">Mot de passe oublié</a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="assets/slider/app.js"></script>
+    
+
+<?php include 'includes/footer.php'; ?>
