@@ -1,19 +1,8 @@
-    <?php require 'actions/signupAction.php'; ?>
-    <?php include 'includes/head.php'; ?>
-    <?php include 'includes/navbar.php'; ?>
-    <?php require 'actions/database.php'; ?>
-    <link rel="stylesheet" href="assets/signup.css">
+
+<link rel="stylesheet" href="assets/signup.css">
 
 
 <div class="grand-parent flex aic container">
-    <!-- Echo errorMsg si users n'a pas rempli tous les champs -->
-    <?php if(isset($errorMsg)){ 
-        echo '<p class="p">' .$errorMsg.  '</p>' ;
-        } 
-        else if(isset($sucess)){
-            echo '<p class="p-success">' .$sucess.'</p>' ;
-        }
-        ?>
     <form class="form-parent" action="" method="POST">
         <div class="form-container">
             <div class="form" id="sign-in-form">
@@ -32,3 +21,4 @@
             </div>
         </div> 
     </form>
+</div>

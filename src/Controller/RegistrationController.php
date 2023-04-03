@@ -45,10 +45,11 @@ class RegistrationController extends AbstractController
 
             if (!$code) {
                 //si code pas valide on envoi message 
-                $form->get('code')->addError(new FormError('Le code de validation est incorrect.'));
+                $this->addFlash('verify_email_error', 'Le code d\'inscription n\'est pas valide.');
                 return $this->render('registration/register.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
+                
             }
 
                 // encode the plain password

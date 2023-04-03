@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -21,6 +22,10 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
+            ->add('code', TextType::class, [
+                'mapped' => false,
+                'label' => 'Code d\'inscription'
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -29,19 +34,14 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            //-------Code--------------------------------
-
-            ->add('code', TextType::class, [
-                'mapped' => false,
-                'label' => 'Validation Code'
-            ])
-
-            //-------Code--------------------------------
-            ->add('plainPassword', PasswordType::class, [
+            
+            ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'type' => PasswordType::class,
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
+                'invalid_message' => 'Les mots de passe ne correspondent pas.',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez entrer votre mot de passe',
@@ -53,6 +53,8 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'first_options'  => ['label' => 'Mot de passe'],
+                'second_options' => ['label' => 'Confimer mot de passe'],
             ])
         ;
     }
