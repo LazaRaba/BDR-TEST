@@ -16,7 +16,7 @@
                 <i class=" close " ><img src="assets/images/Icon/ferme.png" alt=""></i>
             </div>
             <li class="navbar-menu">
-                <a href="/FilRougePhp/index.php">
+                <a href="/">
                     <div class="icon">
                         <i class="fa"><img src="assets/images/Icon/accueil.png" alt=""></i>
                     </div>
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li class="navbar-menu">
-                <a href="/register">
+                <a href="{{ path ('app_register')}}">
                     <div class="icon">
                         <i class="fa"><img src="assets/images/Icon/parents.png" alt=""></i>
                     </div>
@@ -49,12 +49,24 @@
             </li>
             <li class="navbar-menu">
                     <!-- Si l'user n'est pas connecté -->
-                    <a href="/register">
-                        <div class="icon">
-                            <i class="fa"><img src="assets/images/Icon/baby-boy.png" alt=""></i>
-                        </div>
-                        <div class="name" <span data-text="Connexion">Connexion </span></div>
-                    </a>
+                    
+                    <!-- Si l'user est connecté -->
+                    {% if app.user %}
+                        <a href="{{ path ('app_logout')}}">
+                            <div class="icon">
+                                <i class="fa "><img src="assets/images/Icon/baby-boy.png" alt=""></i>
+                            </div>
+                            <div class="name connect" <span data-text="Quitter">Quitter</span></div>
+                        </a>
+                    {% else %}
+                        <a href="{{ path ('app_register')}}">
+                            <div class="icon">
+                                <i class="fa"><img src="assets/images/Icon/baby-boy.png" alt=""></i>
+                            </div>
+                            <div class="name" <span data-text="Connexion">Connexion </span></div>
+                        </a>
+                    {% endif %}
+
                 </li>
 
             {# <?php if (isset($_SESSION['auth'])) { ?>
