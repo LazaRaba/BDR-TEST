@@ -1,7 +1,32 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %} #}
 
-{% block title %}Hello AccountController!{% endblock %}
+{# {% block title %}Hello AccountController!{% endblock %} #}
+{% include "partials/navbar.html.twig" %}
+{% include "partials/head.php" %}
 
 {% block body %}
 
+<link rel="stylesheet" href="assets/parents/parents.css">
+
+    <section id="contact" class="contact">
+            <div class="user-card">
+                <div class="user-card-header">Mon contrat</div>
+                <div class="user-card-body ">
+                    <p>Nom : </p>
+                    <span class="user-name"><?= $connectedChildren['nom'] ?></span>
+                    <p>Prénom : </p>
+                    <span class="user-first-name"><?= $connectedChildren['prenom'] ?></span>
+                    <p>Anniversaire : </p>
+                    <span class="user-birthday"><?= $connectedChildren['anniversaire'] ?></span>
+                    <p>Début du contrat : </p>
+                    <span class="user-contract-start"><?= $connectedChildren['debutContrat'] ?></span>
+                    <p>Taux horaires : </p>
+                    <span class="user-hourly-rate"><?= $connectedChildren['taux_horaire'] ?></span>
+                    <p>Heures par semaine : </p>
+                    <span class="user-hours-per-week"><?= $connectedChildren['heures_semaine'] ?></span>
+                    <p>Année complète : </p>
+                    <span class="user-year"><?= $connectedChildren['anneeComplete'] ?></span>
+                </div>
+            </div>
+        </section>
 {% endblock %}
