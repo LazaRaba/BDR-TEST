@@ -48,7 +48,6 @@
                 </a>
             </li>
             <li class="navbar-menu">
-                    <!-- Si l'user n'est pas connecté -->
                     
                     <!-- Si l'user est connecté -->
                     {% if app.user %}
@@ -58,6 +57,7 @@
                             </div>
                             <div class="name connect" <span data-text="Quitter">Quitter</span></div>
                         </a>
+                    <!-- Si l'user n'est pas connecté -->
                     {% else %}
                         <a href="{{ path ('app_register')}}">
                             <div class="icon">
@@ -66,31 +66,7 @@
                             <div class="name" <span data-text="Connexion">Connexion </span></div>
                         </a>
                     {% endif %}
-
                 </li>
-
-            {# <?php if (isset($_SESSION['auth'])) { ?>
-                <li class="navbar-menu">
-                    <!-- Si l'user est connecté -->
-                    <a href="/FilRougePhp/logout.php">
-                        <div class="icon">
-                            <i class="fa "><img src="assets/images/Icon/baby-boy.png" alt=""></i>
-                        </div>
-                        <div class="name connect" <span data-text="Quitter">Quitter</span></div>
-                    </a>
-                </li>
-                
-            <?php } else { ?>
-                <li class="navbar-menu">
-                    <!-- Si l'user n'est pas connecté -->
-                    <a href="/FilRougePhp/login.php">
-                        <div class="icon">
-                            <i class="fa"><img src="assets/images/Icon/baby-boy.png" alt=""></i>
-                        </div>
-                        <div class="name" <span data-text="Connexion">Connexion </span></div>
-                    </a>
-                </li>
-            <?php } ?> #}
         </ul>
     </nav>
     
