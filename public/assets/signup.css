@@ -19,7 +19,7 @@
 
 .form-parent {
     width: 80%;
-    height: 80vh;
+    height: 90vh;
     background: var(--main-color-green);
     border-radius: 20px;
     overflow: hidden;
@@ -61,7 +61,7 @@
 .alert{
     background-color: var(--main-color-orange);
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 10px auto;
     width: 50vw;
     border-radius: 20px;
     text-align: center;
@@ -72,4 +72,13 @@
 
 .fields-item-input{
     width: 80%;
+}
+
+#message-flash{
+    margin-top:40px;
+    text-align: center;
+    background-color: var(--main-color-orange);
+    padding: 15px;
+    margin-top: 10px auto;
+    border-radius: 20px;
 }

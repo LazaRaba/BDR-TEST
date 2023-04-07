@@ -1,7 +1,5 @@
 {# {% extends 'base.html.twig' %} #}
 
-{# {% block title %}Log in!{% endblock %} #}
-{# <title>{% block title %}BDR - Test{% endblock %}</title> #}
 
 
 {% include "partials/head.php" %}
@@ -18,21 +16,16 @@
 
 <div class="grand-parent container">
     <form class="form-parent" action="" method="POST">
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-    <div class="message-flash">
+    <div id="message-flash">
         {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+            <div class="alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+        {% if app.user %}
+            <div class="">
+                Vous êtes connectés avec l'email: {{ app.user.userIdentifier }}, <div class="btn"><a href="{{ path('app_logout') }}">Se déconnecter</a></div>
+            </div>
+        {% endif %}
     </div>
         <div class="form-container">
             <div class="form" id="sign-in-form">
@@ -52,7 +45,7 @@
                     </label>
                 </div>
                 <div class="submit-container mt-40">
-                    <button type="submit"  class="btn">se connecter</button>
+                    <button type="submit"  class="btn"> se connecter</button>
                     <p class="link"><a href="{{ path ('app_register')}}">Vous n'avez pas de compte ? Inscrivez-vous</a></p>
                     <p class="link"><a href="reset_password.php">Mot de passe oublié</a></p>
                 </div>
