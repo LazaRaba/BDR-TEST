@@ -1,82 +1,76 @@
-.contactMere {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-.contact, .assMat{
-  flex: 1;
-  margin-bottom: 30px;
+.contai {  display: grid;
+  grid-template-columns: 0.4fr 1.4fr 0fr;
+  grid-template-rows: 1fr 0fr 0fr;
+  gap: 0px 39px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Aside infos ."
+    ". . ."
+    ". . .";
 }
 
-.intro h2{
+.Aside { 
+  grid-area: Aside;
+  background-color: var(--main-color);
+  height: 100vh;
+  border: 2px solid var(--main-color-green);
+
+  }
+
+.Aside .navItems{ 
+  padding-top: 5em;
+  }
+
+.Aside li{ 
+  color: var(--main-color-green);
   text-align: center;
-  margin: 60px;
+  line-height: 5em;
+  /* margin-top: 3em; */
+  }
+
+.infos {  display: grid;
+  grid-template-columns: 1fr 0fr 0fr;
+  grid-template-rows: 1fr 1fr 0fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "infosEnfant . ."
+    "infosAssmat . ."
+    ". . .";
+  grid-area: infos;
+}
+
+.infosEnfant { 
+  grid-area: infosEnfant; 
+  text-align: center;
+}
+
+.infosEnfant .name h3{ 
   text-transform: uppercase;
   font-family: 'Comfortaa', cursive;
+  margin-top: 2em;
+}
+
+.infosEnfant .user-card-header{ 
+  background-color: var(--main-color-green);
+  padding: 10px;
+  color: var(--main-color);
+}
+
+.infosEnfant .user-card-body{ 
+  background-color: var(--main-color);
+  padding: 10px;
+}
+
+.infosEnfant .user-card-body p{ 
+  color: var(--main-color-dark);
+  border: 1px solid var(--main-color-green);
+}
+
+.infosEnfant .user-card-body span{ 
   color: var(--main-color-green);
 }
 
-.user-card-header{
-  margin-bottom:20px;
-  font-size: 1.2em;
-  color:var(--main-color);
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-  background-color: var(--main-color-green);
-  border-radius: 5px;
-
-}
-
-.user-card {
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  /* margin: 0 auto; */
-  max-width: 800px;
-  border-radius: 5px;
-  background-color: var(--main-color);
-  margin-bottom: 60px;
-}
-
-.user-card-body{
-  width: 100%;
-  border: var(--main-color-green) 2px solid;
-  border-radius: 5px;
-  padding-bottom:10px ;
-}
-
-
-.user-card p {
-  color: rgb(16, 12, 134);
-  font-size: 16px;
-  margin: 20px 0;
-  text-align: center;
-  text-decoration: underline;
-}
-
-.user-card span {
-  color: #000;
-  font-size: 16px;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .user-card {
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: none;
-  }
-  .contactMere {
-
-    flex-direction: column;
-  }
-}
+.infosAssmat { grid-area: infosAssmat; }

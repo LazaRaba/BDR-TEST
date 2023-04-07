@@ -74,11 +74,12 @@
     width: 80%;
 }
 
-#message-flash{
-    margin-top:40px;
+.alert-danger{
+    /* margin-top:20px; */
+    margin: 20px auto;
+    width: 50vw;
     text-align: center;
     background-color: var(--main-color-orange);
     padding: 15px;
-    margin-top: 10px auto;
     border-radius: 20px;
 }

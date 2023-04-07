@@ -8,8 +8,90 @@
 
 <link rel="stylesheet" href="assets/parents/parents.css">
 
-    <section id="contact" class="contact">
+    {# -----------------------------SIDE BAR------------------------------------------- #}
+<div class="contai">
+    <div class="Aside">
+        <ul class="navItems">
+            <li><a href="#home" class="active"><i class="fa fa-home"></i></a></li>
+            <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Modifier mes infos</a></li>
+            <li><a href="#about"><i class="fa fa-user"></i>Mon contrat</a></li>
+            <li><a href="{{ path ('app_logout')}}"><i class="fa fa-comments"></i> Me deconnecter</a></li>
+        </ul>
+    </div>
+    <div class="infos">
+    <div class="infosEnfant b">
+        <div class="user-card r">
+            <div class="name">
+                <h3>
+                    Bonjour {{ app.user.nom }} {{ app.user.prenom }}
+                </h3>
+            </div>
+            <div class="user-card-header">Mes informations</div>
+            <div class="user-card-body">
+                <p>Nom : </p>
+                <span class="user-name"> {{ app.user.nom }} </span>
+                <p>Prénom : </p>
+                <span class="user-first-name">{{ app.user.prenom }} </span>
+                <p>Anniversaire : </p>
+                <span class="user-birthday">{{ app.user.anniversaire|date("d-m-Y") }} </span>
+                <p>Début du contrat : </p>
+                <span class="user-contract-start">{{ app.user.debutContrat|date("d-m-Y") }} </span>
+                <p>Taux horaires : </p>
+                <span class="user-hourly-rate">{{ app.user.tauxHoraire }}</span>
+                <p>Heures par semaine : </p>
+                <span class="user-hours-per-week">{{ app.user.heuresSemaine }} </span>
+                <p>Année complète : </p>
+                <span class="user-year">{{ app.user.anneeComplete }} </span>
+            </div>
+        </div>
+    </div>
+    <div class="infosAssmat b">
+        <div class="user-card">
+                <div class="name">
+                <h3>
+                    Nom assmat
+                </h3>
+                </div>
+                <div class="user-card-header">Mon assmat</div>
+                <div class="user-card-body ">
+                    <p>Nom : </p>
+                    <span class="user-name"><?= $connectedChildren['nom'] ?></span>
+                    <p>Prénom : </p>
+                    <span class="user-first-name"><?= $connectedChildren['prenom'] ?></span>
+                    <p>Anniversaire : </p>
+                    <span class="user-birthday"><?= $connectedChildren['anniversaire'] ?></span>
+                    <p>Début du contrat : </p>
+                    <span class="user-contract-start"><?= $connectedChildren['debutContrat'] ?></span>
+                    <p>Taux horaires : </p>
+                    <span class="user-hourly-rate"><?= $connectedChildren['taux_horaire'] ?></span>
+                    <p>Heures par semaine : </p>
+                    <span class="user-hours-per-week"><?= $connectedChildren['heures_semaine'] ?></span>
+                    <p>Année complète : </p>
+                    <span class="user-year"><?= $connectedChildren['anneeComplete'] ?></span>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+    {# -----------------------------SIDE BAR------------------------------------------- #}
+    {# <div class="parents b">
+        <section class="aside">
+            <ul class="nav">
+                <li><a href="#home" class="active"><i class="fa fa-home"></i></a></li>
+                <li><a href="#about"><i class="fa fa-user"></i>Mon compte</a></li>
+                <li><a href="#services"><i class="fa fa-list"></i> Services</a></li>
+                <li><a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#contact"><i class="fa fa-comments"></i> Contact</a></li>
+            </ul>
+        </section>
+        {# -----------------------------MON COMPTE------------------------------------------- #}
+        {# <section id="contact" class="contact">
             <div class="user-card">
+                <div class="name">
+                <h3>
+                    Bonjour {{ app.user.nom }} {{ app.user.prenom }}
+                </h3>
+                </div>
                 <div class="user-card-header">Mon contrat</div>
                 <div class="user-card-body ">
                     <p>Nom : </p>
@@ -28,5 +110,7 @@
                     <span class="user-year"><?= $connectedChildren['anneeComplete'] ?></span>
                 </div>
             </div>
-        </section>
+            </section>
+    </div> #} 
+
 {% endblock %}
