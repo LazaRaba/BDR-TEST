@@ -19,12 +19,26 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('email')
+            ->add('nom', TextType::class, [
+                'label' => 'Votre nom',
+                'attr' => [
+                    'placeholder' => 'Entrer votre nom']
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom de votre enfant',
+                'attr' => [
+                    'placeholder' => 'Entrer le prénom de votre enfant']
+            ])
+            ->add('email', TextType::class, [
+                'label' => 'Votre émail',
+                'attr' => [
+                    'placeholder' => 'Entrer votre adresse email'],
+            ])
             ->add('code', TextType::class, [
                 'mapped' => false,
-                'label' => 'Code d\'inscription'
+                'label' => 'Code d\'inscription',
+                'attr' => [
+                    'placeholder' => 'Entrer votre code d\'inscription']
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -35,12 +49,19 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             
+            //TEST nouveau builder password------------------------------------------------
+
+
+            //TEST nouveau builder password------------------------------------------------
+
             ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                ],
                 'invalid_message' => 'Les mots de passe ne correspondent pas.',
                 'constraints' => [
                     new NotBlank([
@@ -53,8 +74,18 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-                'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Confimer mot de passe'],
+                'first_options'  => [
+                    'label' => 'Votre mot de passe',
+                    'attr' => [
+                        'placeholder' => 'Entrer votre mot de passe',
+                    ],
+                ],
+                'second_options' => [
+                    'label' => 'Confimer mot de passe',
+                    'attr' => [
+                        'placeholder' => 'Confirmer votre mot de passe',
+                    ],
+                ],
             ])
         ;
     }

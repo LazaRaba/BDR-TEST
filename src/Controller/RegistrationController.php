@@ -34,35 +34,58 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-        //----------------Verification MDP condition respecter------------------------------------------------
+        //---------------------------------------------------------------
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // Récupérer la valeur de l'email soumis dans le formulaire
+            $email = $form->get('email')->getData();
+
+            // Vérification de l'email
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                // si l'email n'est pas valide, afficher un message d'erreur
+                $this->addFlash('verify_email_error', 'L\'email n\'est pas valide.');
+                return $this->render('registration/register.html.twig', [
+                    'registrationForm' => $form->createView(),
+                ]);
+            }
+             // Vérifier si l'email est déjà utilisé par un autre utilisateur
+            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
+            if ($existingUser) {
+                // si l'email est déjà utilisé, afficher un message d'erreur
+                $this->addFlash('verify_email_exist_error', 'Cet email est déjà utilisé par un autre utilisateur.');
+                return $this->render('registration/register.html.twig', [
+                    'registrationForm' => $form->createView(),
+                ]);
+            }
+            // dd($existingUser);
+
             //----------------TEST CODE de VALIDATION----------------
-            
+
             // Récupérer la valeur du champ "code" soumis dans le formulaire
 
             $code = $entityManager->getRepository(Code::class)->findOneBy(['valeur_code' => $form->get('code')->getData()]);
 
             if (!$code) {
                 //si code pas valide on envoi message 
-                $this->addFlash('verify_email_error', 'Le code d\'inscription n\'est pas valide.');
+                $this->addFlash('verify_code_error', 'Le code d\'inscription n\'est pas valide.');
                 return $this->render('registration/register.html.twig', [
                     'registrationForm' => $form->createView(),
                 ]);
-                
             }
 
-                // encode the plain password
-                $user->setPassword(
-                    $userPasswordHasher->hashPassword(
-                        $user,
-                        $form->get('plainPassword')->getData()
-                    )
-                );
+            // encode the plain password
+            $user->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
             //-------------FIN---TEST CODE de VALIDATION----------------
             $entityManager->persist($user);
             $entityManager->flush();
 
+
+            //------------Verification de l'email------------
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation(
                 'app_verify_email',
@@ -75,7 +98,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [

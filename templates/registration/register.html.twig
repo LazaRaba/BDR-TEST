@@ -1,22 +1,16 @@
-{# {% extends 'base.html.twig' %} #}
-<title>{% block title %}BDR - Test{% endblock %}</title>
+{% extends 'base.html.twig' %}
 
-{# {% block title %}Register{% endblock %} #}
-
-{% include "partials/head.php" %}
-{% include "partials/navbar.html.twig" %}
-
-{% block body %}
+{% block content %}
 
 <!-- ---------------------------------------- -->
 <link rel="stylesheet" href="assets/signup.css">
 
-
 <div class="grand-parent flex aic container">
     <div id="message-flash">
-        {% for flash_error in app.flashes('verify_email_error') %}
-            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-        {% endfor %}
+    {% for flashMessage in app.flashes('success') %}<div class="alert alert-success" role="alert">{{ flashMessage }}</div>{% endfor %}
+    {% for flash_error in app.flashes('verify_code_error') %}<div class="alert alert-danger" role="alert">{{ flash_error }}</div>{% endfor %}
+    {% for flash_error in app.flashes('verify_email_error') %} <div class="alert alert-danger" role="alert">{{ flash_error }}</div> {% endfor %} 
+    {% for flash_error in app.flashes('verify_email_exist_error') %} <div class="alert alert-danger" role="alert">{{ flash_error }}</div> {% endfor %} 
     </div>
     <div class="form-parent">
         {{ form_start(registrationForm) }}
@@ -27,6 +21,7 @@
                         <div class="form-group">
                             {{ form_label(registrationForm.email) }}
                             {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_errors(form.email) }}
                         </div>
                         <div class="form-group">
                             {{ form_label(registrationForm.nom) }}

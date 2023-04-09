@@ -1,5 +1,10 @@
-Pour l'envoi d'email par gmail:
+//Pour l'envoi d'email par gmail:
 
 - Il faut faire une connexion en 2 étapes car google n'accepte pas d'utiliser le mot de passe initial.
 - Pour que le message sera envoyé, il faut mettre en commentaire dans messenger.yaml cette ligne:
     # Symfony\Component\Mailer\Messenger\SendEmailMessage: async
+
+// Invalid credentials
+-Pour mettre "invalid credentials" en francais lors d'une erreur de connection':
+    . créér un fichier security.en.yaml 
+    . Dans ce fichier créer: "Invalid credentials.": "L'adresse mail ou le mot de passe est incorrect."

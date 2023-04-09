@@ -1,16 +1,10 @@
-{# {% extends 'base.html.twig' %} #}
+{% extends 'base.html.twig' %}
 
 
-
-{% include "partials/head.php" %}
-{% include "partials/navbar.html.twig" %}
-
-{% block body %}
+{% block content %}
 
 
 {# ------------------------------------------------------------------------------------------- #}
-
-
 <!-- Css signup -->
 <link rel="stylesheet" href="assets/signup.css">
 
@@ -32,9 +26,9 @@
                 <h1 class="signTitle ">Connexion</h1>
                 <div class="fields flex fdc jcc aic pt-40">
                     <label class="fields-item mt-20" for="inputEmail">Email</label>
-                    <input class="fields-item-input mt-10" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    <input class="fields-item-input mt-10" type="email" placeholder="Votre adresse mail" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
                     <label class="fields-item mt-20" for="inputPassword">Password</label>
-                    <input class="fields-item-input mt-10" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    <input class="fields-item-input mt-10" type="password" placeholder="Votre mot de passe" id="inputPassword" class="form-control" autocomplete="current-password" required>
                     <input type="hidden" name="_csrf_token"
                         value="{{ csrf_token('authenticate') }}"
                     >
