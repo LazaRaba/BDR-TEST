@@ -57,7 +57,6 @@ class RegistrationController extends AbstractController
                     'registrationForm' => $form->createView(),
                 ]);
             }
-            // dd($existingUser);
 
             //----------------TEST CODE de VALIDATION----------------
 

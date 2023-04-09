@@ -70,12 +70,11 @@
 }
 
 .fields-item-input {
-    width: 50%;
-    height: 2em;
+    width: 70%;
+    height: 1.5em;
 }
 
 .alert-danger {
-    /* margin-top:20px; */
     margin: 20px auto;
     width: 50vw;
     text-align: center;
@@ -84,9 +83,7 @@
     border-radius: 20px;
 }
 /* ----------------Special page de connexion---------------------------- */
-.fieds .input{
 
-}
 /* ----------------Special page de connexion---------------------------- */
 
 @media (max-width: 768px) {
