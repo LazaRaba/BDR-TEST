@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\AssMAtRepository;
+use App\Repository\AssMatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AssMAtRepository::class)]
-class AssMAt
+#[ORM\Entity(repositoryClass: AssMatRepository::class)]
+class AssMat
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -40,6 +42,14 @@ class AssMAt
 
     #[ORM\Column]
     private ?bool $isAdmin = null;
+
+    #[ORM\OneToMany(mappedBy: 'id_AssMat', targetEntity: Code::class)]
+    private Collection $code;
+
+    public function __construct()
+    {
+        $this->code = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -150,6 +160,36 @@ class AssMAt
     public function setIsAdmin(bool $isAdmin): self
     {
         $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Code>
+     */
+    public function getCode(): Collection
+    {
+        return $this->code;
+    }
+
+    public function addCode(Code $code): self
+    {
+        if (!$this->code->contains($code)) {
+            $this->code->add($code);
+            $code->setIdAssMat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCode(Code $code): self
+    {
+        if ($this->code->removeElement($code)) {
+            // set the owning side to null (unless already changed)
+            if ($code->getIdAssMat() === $this) {
+                $code->setIdAssMat(null);
+            }
+        }
 
         return $this;
     }

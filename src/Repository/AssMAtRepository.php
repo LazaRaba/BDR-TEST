@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\AssMAt;
+use App\Entity\AssMat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<AssMAt>
+ * @extends ServiceEntityRepository<AssMat>
  *
- * @method AssMAt|null find($id, $lockMode = null, $lockVersion = null)
- * @method AssMAt|null findOneBy(array $criteria, array $orderBy = null)
- * @method AssMAt[]    findAll()
- * @method AssMAt[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method AssMat|null find($id, $lockMode = null, $lockVersion = null)
+ * @method AssMat|null findOneBy(array $criteria, array $orderBy = null)
+ * @method AssMat[]    findAll()
+ * @method AssMat[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AssMAtRepository extends ServiceEntityRepository
+class AssMatRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, AssMAt::class);
+        parent::__construct($registry, AssMat::class);
     }
 
-    public function save(AssMAt $entity, bool $flush = false): void
+    public function save(AssMat $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class AssMAtRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(AssMAt $entity, bool $flush = false): void
+    public function remove(AssMat $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class AssMAtRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return AssMAt[] Returns an array of AssMAt objects
+//     * @return AssMat[] Returns an array of AssMat objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class AssMAtRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?AssMAt
+//    public function findOneBySomeField($value): ?AssMat
 //    {
 //        return $this->createQueryBuilder('a')
 //            ->andWhere('a.exampleField = :val')

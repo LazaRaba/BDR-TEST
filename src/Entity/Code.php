@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CodeRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CodeRepository::class)]
@@ -14,8 +13,11 @@ class Code
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $valeur_code = null;
+
+    #[ORM\ManyToOne(inversedBy: 'code')]
+    private ?AssMat $id_assmat = null;
 
     public function getId(): ?int
     {
@@ -27,9 +29,21 @@ class Code
         return $this->valeur_code;
     }
 
-    public function setValeurCode(?string $valeur_code): self
+    public function setValeurCode(string $valeur_code): self
     {
         $this->valeur_code = $valeur_code;
+
+        return $this;
+    }
+
+    public function getIdAssmat(): ?AssMat
+    {
+        return $this->id_assmat;
+    }
+
+    public function setIdAssmat(?AssMat $id_assmat): self
+    {
+        $this->id_assmat = $id_assmat;
 
         return $this;
     }

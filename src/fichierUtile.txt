@@ -8,3 +8,6 @@
 -Pour mettre "invalid credentials" en francais lors d'une erreur de connection':
     . créér un fichier security.en.yaml 
     . Dans ce fichier créer: "Invalid credentials.": "L'adresse mail ou le mot de passe est incorrect."
+
+    One code to One assmat
+    One Assmat to Many Code
