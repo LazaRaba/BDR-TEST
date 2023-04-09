@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
@@ -22,23 +23,31 @@ class RegistrationFormType extends AbstractType
             ->add('nom', TextType::class, [
                 'label' => 'Votre nom',
                 'attr' => [
-                    'placeholder' => 'Entrer votre nom']
+                    'placeholder' => 'Entrer votre nom',
+                    'class' => 'form-control',
+                    ]
             ])
             ->add('prenom', TextType::class, [
                 'label' => 'Prénom de votre enfant',
                 'attr' => [
-                    'placeholder' => 'Entrer le prénom de votre enfant']
+                    'placeholder' => 'Entrer le prénom de votre enfant',
+                    'class' => 'form-control',
+                    ]
             ])
-            ->add('email', TextType::class, [
+            ->add('email', EmailType::class, [
                 'label' => 'Votre émail',
                 'attr' => [
-                    'placeholder' => 'Entrer votre adresse email'],
+                    'placeholder' => 'Entrer votre adresse email',
+                'class' => 'form-control',
+                ],
             ])
             ->add('code', TextType::class, [
                 'mapped' => false,
                 'label' => 'Code d\'inscription',
                 'attr' => [
-                    'placeholder' => 'Entrer votre code d\'inscription']
+                    'placeholder' => 'Entrer votre code d\'inscription',
+                    'class' => 'form-control',
+                    ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
