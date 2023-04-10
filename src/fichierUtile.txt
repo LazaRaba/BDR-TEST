@@ -6,8 +6,14 @@
 
 // Invalid credentials
 -Pour mettre "invalid credentials" en francais lors d'une erreur de connection':
-    . créér un fichier security.en.yaml 
-    . Dans ce fichier créer: "Invalid credentials.": "L'adresse mail ou le mot de passe est incorrect."
+    - Créér un fichier security.en.yaml 
+    - Dans ce fichier créer: "Invalid credentials.": "L'adresse mail ou le mot de passe est incorrect."
 
+// Methode pour savoir la relation.
     One code to One assmat
-    One Assmat to Many Code
+    One Assmat to Many code
+
+//Creation de easy admin
+   - Installation: composer require easycorp/easyadmin-bundle
+   - Création: symfony console make:admin:dashboard
+   - Choisir Entity a manager: symfony console make:admin:crud

@@ -16,8 +16,11 @@ class Code
     #[ORM\Column(length: 255)]
     private ?string $valeur_code = null;
 
-    #[ORM\ManyToOne(inversedBy: 'code')]
+    #[ORM\ManyToOne]
     private ?AssMat $id_assmat = null;
+
+    // #[ORM\ManyToOne(inversedBy: 'code')]
+    // private ?AssMat $id_assmat = null;
 
     public function getId(): ?int
     {

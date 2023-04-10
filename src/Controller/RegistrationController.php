@@ -48,21 +48,16 @@ class RegistrationController extends AbstractController
                     'registrationForm' => $form->createView(),
                 ]);
             }
-             // Vérifier si l'email est déjà utilisé par un autre utilisateur
-            $existingUser = $entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
-            if ($existingUser) {
-                // si l'email est déjà utilisé, afficher un message d'erreur
-                $this->addFlash('verify_email_exist_error', 'Cet email est déjà utilisé par un autre utilisateur.');
-                return $this->render('registration/register.html.twig', [
-                    'registrationForm' => $form->createView(),
-                ]);
-            }
-
+            
             //----------------TEST CODE de VALIDATION----------------
 
             // Récupérer la valeur du champ "code" soumis dans le formulaire
+            $codeValue = $form->get('code')->getData();
 
-            $code = $entityManager->getRepository(Code::class)->findOneBy(['valeur_code' => $form->get('code')->getData()]);
+            // Recherche le code correspondant
+            // $code = $entityManager->getRepository(Code::class)->findOneBy(['valeur_code' => $form->get('code')->getData()]);
+            $code = $entityManager->getRepository(Code::class)->findOneBy(['valeur_code' => $codeValue]);
+
 
             if (!$code) {
                 //si code pas valide on envoi message 
@@ -71,6 +66,12 @@ class RegistrationController extends AbstractController
                     'registrationForm' => $form->createView(),
                 ]);
             }
+                // Récupère l'Assmat correspondant au code
+                $assmat = $code->getIdAssMat();
+
+                // Associe l'Assmat à l'utilisateur
+                $user->setAssMat($assmat);
+            
 
             // encode the plain password
             $user->setPassword(
