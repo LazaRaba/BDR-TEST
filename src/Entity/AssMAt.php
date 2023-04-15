@@ -43,20 +43,13 @@ class AssMat
     #[ORM\Column]
     private ?bool $isAdmin = null;
 
-    // #[ORM\OneToMany(mappedBy: 'id_AssMat', targetEntity: Code::class)]
-    // private Collection $code;
-
-    // #[ORM\OneToMany(mappedBy: 'id_AssMat', targetEntity: Code::class)]
-    // #[ORM\JoinColumn(name: 'id_assmat_id', referencedColumnName: 'id')]
-    // private Collection $code;
-
-    #[ORM\OneToMany(mappedBy: 'AssMat', targetEntity: User::class)]
-    private Collection $users;
+    // #[ORM\OneToMany(mappedBy: 'AssMat', targetEntity: User::class)]
+    // private Collection $users;
 
     public function __construct()
     {
         $this->code = new ArrayCollection();
-        $this->users = new ArrayCollection();
+        // $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -202,33 +195,33 @@ class AssMat
         return $this;
     }
 
-    /**
-     * @return Collection<int, User>
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
+    // /**
+    //  * @return Collection<int, User>
+    //  */
+    // public function getUsers(): Collection
+    // {
+    //     return $this->users;
+    // }
 
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users->add($user);
-            $user->setAssmat($this);
-        }
+    // public function addUser(User $user): self
+    // {
+    //     if (!$this->users->contains($user)) {
+    //         $this->users->add($user);
+    //         $user->setAssMat($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeUser(User $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getAssmat() === $this) {
-                $user->setAssmat(null);
-            }
-        }
+    // public function removeUser(User $user): self
+    // {
+    //     if ($this->users->removeElement($user)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($user->getAssMat() === $this) {
+    //             $user->setAssMat(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

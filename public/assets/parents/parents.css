@@ -1,76 +1,49 @@
-.contai {  display: grid;
-  grid-template-columns: 0.4fr 1.4fr 0fr;
-  grid-template-rows: 1fr 0fr 0fr;
-  gap: 0px 39px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "Aside infos ."
-    ". . ."
-    ". . .";
-}
-
-.Aside { 
-  grid-area: Aside;
-  background-color: var(--main-color);
-  height: 100vh;
-  border: 2px solid var(--main-color-green);
-
-  }
-
-.Aside .navItems{ 
-  padding-top: 5em;
-  }
-
-.Aside li{ 
+#titre-vert{
   color: var(--main-color-green);
-  text-align: center;
-  line-height: 5em;
-  /* margin-top: 3em; */
-  }
-
-.infos {  display: grid;
-  grid-template-columns: 1fr 0fr 0fr;
-  grid-template-rows: 1fr 1fr 0fr;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "infosEnfant . ."
-    "infosAssmat . ."
-    ". . .";
-  grid-area: infos;
 }
 
-.infosEnfant { 
-  grid-area: infosEnfant; 
-  text-align: center;
-}
-
-.infosEnfant .name h3{ 
-  text-transform: uppercase;
-  font-family: 'Comfortaa', cursive;
-  margin-top: 2em;
-}
-
-.infosEnfant .user-card-header{ 
+#titre-info{
+  color:var(--main-color);
   background-color: var(--main-color-green);
-  padding: 10px;
-  color: var(--main-color);
+  font-family: 'Comfortaa', cursive;
 }
 
-.infosEnfant .user-card-body{ 
-  background-color: var(--main-color);
-  padding: 10px;
-}
-
-.infosEnfant .user-card-body p{ 
-  color: var(--main-color-dark);
+.table{
   border: 1px solid var(--main-color-green);
 }
 
-.infosEnfant .user-card-body span{ 
-  color: var(--main-color-green);
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+.table{
+  margin: 1rem;
+
 }
 
-.infosAssmat { grid-area: infosAssmat; }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    padding-left: 50%;
+    text-align: left;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

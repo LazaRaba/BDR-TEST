@@ -47,7 +47,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // For example:
+        // J'ai changé la redirection vers adin mais pas app-login
         return new RedirectResponse($this->urlGenerator->generate('app_account'));
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }

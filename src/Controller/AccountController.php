@@ -2,19 +2,34 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use App\Repository\AssMatRepository;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 //----------------------------------------------------------------
 class AccountController extends AbstractController
+
 {
+
+    // Inject the security service
+    public function __construct(private Security $security){
+        $this->security = $security;
+    }
+    
     #[Route('/account', name: 'app_account')]
+    
     public function index(): Response
     {
+        $user = $this->security->getUser(); // Récupération de l'utilisateur connecté
+        dd($user);
+    
         return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
+            'user' => $user,
+            // 'assMat' => $assMat,
         ]);
     }
 }
