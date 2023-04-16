@@ -54,13 +54,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
-    // #[ORM\ManyToOne]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?AssMat $assMat = null;
-
-    // #[ORM\ManyToOne(inversedBy: 'users')]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?AssMat $assMat = null;
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?AssMat $assmat = null;
     
 
     public function getId(): ?int
@@ -234,15 +230,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->isVerified;
     }
 
-    // public function getAssMat(): ?AssMat
-    // {
-    //     return $this->assMat;
-    // }
+    public function getAssmat(): ?Assmat
+    {
+        return $this->assmat;
+    }
 
-    // public function setAssMat(?AssMat $assMat): self
-    // {
-    //     $this->assMat = $assMat;
-
-    //     return $this;
-    // }
+    public function setAssmat(?Assmat $assmat): self
+    {
+        $this->assmat = $assmat;
+        return $this;
+    }
 }

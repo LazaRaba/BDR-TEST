@@ -16,11 +16,8 @@ class Code
     #[ORM\Column(length: 255)]
     private ?string $valeur_code = null;
 
-    #[ORM\ManyToOne]
-    private ?AssMat $id_assmat = null;
-
-    // #[ORM\ManyToOne(inversedBy: 'code')]
-    // private ?AssMat $id_assmat = null;
+    #[ORM\ManyToOne(inversedBy: 'codes')]
+    private ?AssMat $assmat = null;
 
     public function getId(): ?int
     {
@@ -39,14 +36,14 @@ class Code
         return $this;
     }
 
-    public function getIdAssmat(): ?AssMat
+    public function getAssmat(): ?AssMat
     {
-        return $this->id_assmat;
+        return $this->assmat;
     }
 
-    public function setIdAssmat(?AssMat $id_assmat): self
+    public function setAssmat(?AssMat $assmat): self
     {
-        $this->id_assmat = $id_assmat;
+        $this->assmat = $assmat;
 
         return $this;
     }

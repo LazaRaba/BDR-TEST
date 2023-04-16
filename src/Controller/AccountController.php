@@ -25,8 +25,8 @@ class AccountController extends AbstractController
     public function index(): Response
     {
         $user = $this->security->getUser(); // Récupération de l'utilisateur connecté
-        dd($user);
-    
+
+
         return $this->render('account/index.html.twig', [
             'user' => $user,
             // 'assMat' => $assMat,

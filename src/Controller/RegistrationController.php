@@ -65,13 +65,12 @@ class RegistrationController extends AbstractController
                     'registrationForm' => $form->createView(),
                 ]);
             }
-                // Récupère l'Assmat correspondant au code
-                $assmat = $code->getIdAssMat();
+            // Récupère l'Assmat correspondant au code
+            $assmat = $code->getAssmat();
 
-                // Associe l'Assmat à l'utilisateur
-                $user->setAssMat($assmat);
+            // Associe l'Assmat à l'utilisateur
+            $user->setAssmat($assmat);
             
-
             // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
