@@ -25,11 +25,11 @@ class AccountController extends AbstractController
     public function index(): Response
     {
         $user = $this->security->getUser(); // Récupération de l'utilisateur connecté
-
+        $assmat = $user->getAssmat(); // Récupération de l'objet AssMat correspondant
 
         return $this->render('account/index.html.twig', [
             'user' => $user,
-            // 'assMat' => $assMat,
+            'assmat' => $assmat,
         ]);
     }
 }

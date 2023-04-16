@@ -57,12 +57,12 @@
 
         <tbody>
             <tr class="table-active">
-                <td data-label="nom">{{ user.nom }}</td>
-                <td data-label="Prénom">{{ user.prenom }}</td>
-                <td data-label="Sécu-sociale">{{ user.anniversaire |date("d/m/Y") }}</td>
-                <td data-label="Paje emploi">{{ user.debutContrat |date("d/m/Y") }}</td>
-                <td data-label="Agrément">{{ user.email }}</td>
-                <td data-label="Date fin">{{ user.tauxHoraire }}</td>
+                <td data-label="nom">{{ assmat.nom }}</td>
+                <td data-label="Prénom">{{ assmat.prenom }}</td>
+                <td data-label="Sécu-sociale">{{ assmat.securiteSociale  }}</td>
+                <td data-label="Paje emploi">{{ assmat.Pajeemploi }}</td>
+                <td data-label="Agrément">{{ assmat.numeroAgrement }}</td>
+                <td data-label="Date fin">{{ assmat.dateFinAgrement |date("d/m/Y") }}</td>
             </tr>
         </tbody>
     </table>

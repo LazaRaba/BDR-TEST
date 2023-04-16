@@ -36,8 +36,11 @@ class UpdatePasswordsCommand extends Command
         foreach ($users as $user) {
             $id = $user['id'];
             $plainPassword = $user['password'];
+            
+
 
             $hashedPassword = password_hash($plainPassword, PASSWORD_BCRYPT);
+
 
             $this->connection->executeQuery('UPDATE ass_mat SET password = ? WHERE id = ?', [$hashedPassword, $id]);
         }
